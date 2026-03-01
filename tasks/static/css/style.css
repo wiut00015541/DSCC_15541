@@ -327,3 +327,17 @@ h1, h2 {
     margin-bottom: 10px;
     font-weight: 600;
 }
+
+.tag-container {
+    margin-top: 8px;
+}
+
+.tag-badge {
+    display: inline-block;
+    background-color: #ffe0ec;
+    color: #d63384;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin-right: 5px;
+}

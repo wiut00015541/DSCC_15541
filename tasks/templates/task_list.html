@@ -15,6 +15,21 @@
         <div>
             <strong>{{ task.title }}</strong><br>
             {{ task.description }}
+
+            {% if task.category %}
+            <div class="category-badge">
+                Category: {{ task.category.name }}
+            </div>
+            {% endif %}
+
+
+            {% if task.tags.all %}
+            <div class="tag-container">
+                {% for tag in task.tags.all %}
+                    <span class="tag-badge">{{ tag.name }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
 
         <div>
@@ -39,6 +54,21 @@
         <div>
             <strong>{{ task.title }}</strong><br>
             {{ task.description }}
+
+            {% if task.category %}
+            <div class="category-badge">
+                Category: {{ task.category.name }}
+            </div>
+            {% endif %}
+
+
+            {% if task.tags.all %}
+            <div class="tag-container">
+                {% for tag in task.tags.all %}
+                    <span class="tag-badge">{{ tag.name }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
 
         <div>
@@ -61,6 +91,22 @@
         <div>
             <strong>{{ task.title }}</strong><br>
             {{ task.description }}
+
+            {% if task.category %}
+            <div class="category-badge">
+                Category: {{ task.category.name }}
+            </div>
+            {% endif %}
+
+
+            
+            {% if task.tags.all %}
+            <div class="tag-container">
+                {% for tag in task.tags.all %}
+                    <span class="tag-badge">{{ tag.name }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
 
         <div>
