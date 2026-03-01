@@ -1,0 +1,7 @@
+<h1>Task List</h1>
+
+{% for task in tasks %}
+    <p>{{ task.title }}</p>
+{% empty %}
+    <p>No tasks yet.</p>
+{% endfor %}
