@@ -111,3 +111,11 @@ LOGOUT_REDIRECT_URL = '/login/'
 
 # Default primary key
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
+
+CSRF_TRUSTED_ORIGINS = ["http://localhost:8000"]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
+
+USE_X_FORWARDED_HOST = True
