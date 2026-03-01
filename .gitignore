@@ -1,21 +1,8 @@
-# Python
+.env
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
-
-# Virtual environment
+venv/
 .venv/
-
-# Django
 db.sqlite3
 media/
-
-# Environment variables
-.env
-
-# Docker
-postgres_data/
-
-# VS Code
-.vscode/
+staticfiles/
