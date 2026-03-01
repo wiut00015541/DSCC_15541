@@ -321,3 +321,9 @@ h1, h2 {
     background-color: #ffe6e6;
     border-left: 6px solid #dc3545;
 }
+
+.welcome-text {
+    color: #d63384;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
