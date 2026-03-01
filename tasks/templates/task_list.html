@@ -1,12 +1,20 @@
+<h1>My Tasks</h1>
+
+<a href="{% url 'create_task' %}">Create New Task</a>
+
 <form method="post" action="{% url 'logout' %}">
     {% csrf_token %}
     <button type="submit">Logout</button>
 </form>
 
-<h1>Task List</h1>
+<hr>
 
 {% for task in tasks %}
-    <p>{{ task.title }}</p>
+    <p>
+        {{ task.title }} |
+        <a href="{% url 'update_task' task.pk %}">Edit</a> |
+        <a href="{% url 'delete_task' task.pk %}">Delete</a>
+    </p>
 {% empty %}
     <p>No tasks yet.</p>
 {% endfor %}
