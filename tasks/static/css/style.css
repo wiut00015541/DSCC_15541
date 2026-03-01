@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff5f8;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #ffb6c1;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.navbar h2 {
+    margin: 0;
+}
+
+.container {
+    padding: 40px;
+}
+
+h1, h2 {
+    color: #d63384;
+}
+
+.btn {
+    background-color: #ff69b4;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #e75480;
+}
+
+.btn-danger {
+    background-color: #ff4d6d;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.task-box {
+    margin-top: 20px;
+}
+
+.task-item {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
+}
+
+.form-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
+    width: 300px;
+}
+
+/* --- TASK LAYOUT --- */
+
+.task-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-text {
+    max-width: 70%;
+}
+
+
+.btn-small {
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 8px;
+    color: white;
+}
+
+.edit-btn {
+    background-color: #ff85c1;
+}
+
+.edit-btn:hover {
+    background-color: #e754a5;
+}
+
+.delete-btn {
+    background-color: #ff4d6d;
+}
+
+.delete-btn:hover {
+    background-color: #d63384;
+}
+
+
+.nav-links a {
+    background-color: white;
+    color: #d63384;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    background-color: #ffe0ec;
+}
+
+.nav-links button {
+    background-color: white;
+    color: #d63384;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.nav-links button:hover {
+    background-color: #ffe0ec;
+}

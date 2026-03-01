@@ -1,20 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 <h1>My Tasks</h1>
 
-<a href="{% url 'create_task' %}">Create New Task</a>
+<a class="btn" href="{% url 'create_task' %}">+ Create New Task</a>
 
-<form method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
-    <button type="submit">Logout</button>
-</form>
-
-<hr>
-
+<div class="task-box">
 {% for task in tasks %}
-    <p>
-        {{ task.title }} |
-        <a href="{% url 'update_task' task.pk %}">Edit</a> |
-        <a href="{% url 'delete_task' task.pk %}">Delete</a>
-    </p>
+    <div class="task-item">
+        
+        <div class="task-content">
+            <div class="task-text">
+                <strong>{{ task.title }}</strong><br>
+                {{ task.description }}
+            </div>
+
+            <div class="task-actions">
+                <a class="btn-small edit-btn" href="{% url 'update_task' task.pk %}">Edit</a>
+                <a class="btn-small delete-btn" href="{% url 'delete_task' task.pk %}">Delete</a>
+            </div>
+        </div>
+
+    </div>
 {% empty %}
-    <p>No tasks yet.</p>
+    <p>No tasks yet</p>
 {% endfor %}
+</div>
+
+{% endblock %}
