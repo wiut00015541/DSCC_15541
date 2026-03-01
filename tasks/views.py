@@ -2,10 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from .forms import RegisterForm
 from .models import Task
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def task_list(request):
-    tasks = Task.objects.all()
+    tasks = Task.objects.filter(owner=request.user)
     return render(request, 'task_list.html', {'tasks': tasks})
 
 
