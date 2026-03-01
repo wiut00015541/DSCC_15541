@@ -8,8 +8,23 @@ class RegisterForm(UserCreationForm):
         model = User
         fields = ['username', 'password1', 'password2']
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.fields.values():
+            field.widget.attrs.update({
+                'class': 'form-input'
+            })
 
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['title', 'description', 'categories', 'completed']
+        fields = ['title', 'description', 'category']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.fields.values():
+            field.widget.attrs.update({
+                'class': 'form-input'
+            })

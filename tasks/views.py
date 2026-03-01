@@ -9,8 +9,22 @@ from django.shortcuts import get_object_or_404
 
 @login_required
 def task_list(request):
-    tasks = Task.objects.filter(owner=request.user)
-    return render(request, 'task_list.html', {'tasks': tasks})
+    active_tasks = Task.objects.filter(owner=request.user, status='active')
+    completed_tasks = Task.objects.filter(owner=request.user, status='completed')
+    cancelled_tasks = Task.objects.filter(owner=request.user, status='cancelled')
+
+    return render(request, 'task_list.html', {
+        'active_tasks': active_tasks,
+        'completed_tasks': completed_tasks,
+        'cancelled_tasks': cancelled_tasks
+    })
+
+@login_required
+def change_status(request, pk, new_status):
+    task = get_object_or_404(Task, pk=pk, owner=request.user)
+    task.status = new_status
+    task.save()
+    return redirect('task_list')
 
 
 def register(request):
