@@ -18,7 +18,9 @@ FROM python:3.11-alpine3.19
 
 WORKDIR /app
 
-RUN apk add --no-cache postgresql-libs
+RUN apk add --no-cache postgresql-libs netcat-openbsd
+
+RUN apk add --no-cache postgresql-libs netcat-openbsd
 
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 
@@ -35,8 +37,13 @@ RUN mkdir -p /app/staticfiles /app/media
 
 RUN chown -R appuser:appgroup /app
 
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+
+
 USER appuser
 
-RUN python manage.py collectstatic --noinput
+ENTRYPOINT ["/entrypoint.sh"]
 
 CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "2"]
