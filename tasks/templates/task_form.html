@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="full-form-wrapper">
+    <div class="full-form-card">
+        <h2>Create / Edit Task</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Title</label>
+                {{ form.title }}
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                {{ form.description }}
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                {{ form.category }}
+            </div>
+
+            <div class="form-group">
+                <label>Tags</label>
+                {{ form.tags }}
+            </div>
+
+
+            <button class="btn-primary" type="submit">Save Task</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
