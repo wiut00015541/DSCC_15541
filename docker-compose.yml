@@ -18,7 +18,7 @@ services:
       - media_volume:/app/media
     depends_on:
       - db
-
+    
   nginx:
     image: nginx:1.25-alpine
     ports:

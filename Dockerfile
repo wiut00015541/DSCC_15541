@@ -37,4 +37,6 @@ RUN chown -R appuser:appgroup /app
 
 USER appuser
 
+RUN python manage.py collectstatic --noinput
+
 CMD ["gunicorn", "core.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "2"]
