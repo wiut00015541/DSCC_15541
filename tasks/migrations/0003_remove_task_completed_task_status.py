@@ -6,17 +6,25 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tasks', '0002_remove_task_categories_task_category'),
+        ("tasks", "0002_remove_task_categories_task_category"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='task',
-            name='completed',
+            model_name="task",
+            name="completed",
         ),
         migrations.AddField(
-            model_name='task',
-            name='status',
-            field=models.CharField(choices=[('active', 'Active'), ('completed', 'Completed'), ('cancelled', 'Cancelled')], default='active', max_length=20),
+            model_name="task",
+            name="status",
+            field=models.CharField(
+                choices=[
+                    ("active", "Active"),
+                    ("completed", "Completed"),
+                    ("cancelled", "Cancelled"),
+                ],
+                default="active",
+                max_length=20,
+            ),
         ),
     ]

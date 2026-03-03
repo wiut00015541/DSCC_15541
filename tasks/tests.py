@@ -24,7 +24,7 @@ def test_create_task():
         title="Test Task",
         description="Test Description",
         category=category,
-        owner=user   # <-- исправлено
+        owner=user,  # <-- исправлено
     )
 
     assert task.title == "Test Task"
@@ -36,10 +36,7 @@ def test_task_category_relationship():
     category = Category.objects.create(name="Study")
 
     task = Task.objects.create(
-        title="Read",
-        description="Book",
-        category=category,
-        owner=user   # <-- добавлено
+        title="Read", description="Book", category=category, owner=user  # <-- добавлено
     )
 
     assert task.category.name == "Study"
@@ -51,9 +48,7 @@ def test_task_tag_relationship():
     tag = Tag.objects.create(name="Important")
 
     task = Task.objects.create(
-        title="Task",
-        description="Desc",
-        owner=user   # <-- добавлено
+        title="Task", description="Desc", owner=user  # <-- добавлено
     )
 
     task.tags.add(tag)
