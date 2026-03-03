@@ -113,7 +113,7 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 # ------------------------
-# AUTH REDIRECTS
+# AUTH REDIRECT
 # ------------------------
 
 LOGIN_URL = "/login/"
