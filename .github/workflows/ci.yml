@@ -6,6 +6,7 @@ on:
       - main
 
 jobs:
+
   test:
     runs-on: ubuntu-latest
 
@@ -40,7 +41,12 @@ jobs:
           python-version: 3.11
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          pip install flake8 pytest pytest-django
+
+      - name: Run flake8
+        run: flake8 .
 
       - name: Run migrations
         run: python manage.py migrate
@@ -59,7 +65,29 @@ jobs:
         run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
       - name: Build image
-        run: docker build -t 00015541/dscc_15541:latest .
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/dscc_15541:latest .
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/dscc_15541:${{ github.sha }} .
 
       - name: Push image
-        run: docker push 00015541/dscc_15541:latest
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/dscc_15541:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/dscc_15541:${{ github.sha }}
+
+  deploy:
+    needs: docker
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to server via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd DSCC_15541
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/dscc_15541:latest
+            docker-compose down
+            docker-compose up -d
+            docker-compose exec web python manage.py migrate
