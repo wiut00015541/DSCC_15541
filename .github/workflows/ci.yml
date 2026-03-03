@@ -87,7 +87,12 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd DSCC_15541
+
+            echo "Pulling new image..."
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/dscc_15541:latest
-            docker-compose down
-            docker-compose up -d
+
+            echo "Recreating web container..."
+            docker-compose up -d --no-deps --force-recreate web
+
+            echo "Running migrations..."
             docker-compose exec -T web python manage.py migrate
