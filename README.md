@@ -87,6 +87,9 @@ SECRET_KEY=your_secret_key
 DEBUG=True
 ALLOWED_HOSTS=localhost,127.0.0.1
 
+<img width="1057" height="639" alt="image" src="https://github.com/user-attachments/assets/49cb90af-ffaf-4d27-9dfb-f84535837620" />
+
+
 5. Run with Docker:
 
 docker-compose up --build
@@ -160,12 +163,16 @@ The CI/CD pipeline is implemented using GitHub Actions:
 # Screenshots
 
 Login Page
-
+<img width="1920" height="1200" alt="Screenshot (238)" src="https://github.com/user-attachments/assets/1cabf6b6-d85e-4e4e-8db0-0f9d8c2afb1f" />
 
 Task List Page
+<img width="1920" height="1200" alt="Screenshot (237)" src="https://github.com/user-attachments/assets/9a6fc289-0623-482f-a017-c29a26212d5a" />
 
 
 Admin Panel
+<img width="1920" height="1200" alt="Screenshot (239)" src="https://github.com/user-attachments/assets/b55a11ea-9f22-4e76-a0fa-152a1d1bdf60" />
 
 
 HTTPS Secure Connection
+<img width="834" height="471" alt="image" src="https://github.com/user-attachments/assets/299643ea-17ec-4461-95a5-4639f0055a83" />
+
