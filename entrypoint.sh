@@ -11,4 +11,5 @@ echo "Database is up"
 python manage.py migrate --noinput
 python manage.py collectstatic --noinput
 
+echo "Starting Gunicorn..."
 exec "$@"
